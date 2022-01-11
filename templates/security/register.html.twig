@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sign up!{% endblock %}
+
+{% block body %}
+
+    <section id="central-section" class="bg-light p-5">
+        <div class="container jumbotron p-5 img-rounded">
+            <div class="row mb-5">
+                <div class="col-lg">
+                    <h1 class="display-4 font-weight-bold">Sign up</h1>
+                </div>
+            </div>
+            <div class="row mb-4 text-center">
+                <div class="col-lg">
+                    <div class="row">
+                        {{ form(registration_form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
