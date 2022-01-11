@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="author" content="SensioTV">
+    <meta name="description" content="An awesome SensioLabs University project to order some cool movies.">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=10"><![endif]-->
+
+    <meta property="og:image" content="https://university.sensiolabs.com/images/sensiolabs-university-fullwhite.png">
+    <meta property="og:title" content="SensioTV from SensioLabs University - Home">
+    <meta property="og:description" content="An awesome SensioLabs University project to order some cool movies.">
+
+    <title>{% block title %}SensioTV - {% endblock %}</title>
+
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    <!-- Vendor CSS -->
+    {% endblock %}
+
+    <link rel="shortcut icon" type="image/x-icon" href="/build/images/sensiotv-favicon.ico">
+    <link rel="icon" type="image/png" href="/build/images/sensiotv-icon.png">
+    <link rel="apple-touch-icon" type="image/png" href="/build/images/sensiotv-icon.png">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-dark navbar-expand-md fixed-top bg-dark justify-content-center">
+        <a class="navbar-brand mr-0" href="./index.html"><img src="/build/images/sensiotv-icon.png" alt="SensioTV Brand Icon"> <span class="color-green">TV+</span></a>
+        <button class="navbar-toggler ml-5" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        {{ include ('_menu.html.twig') }}
+    </nav>
+</header>
+
+<main id="main">
+    {{ include('_flashes.html.twig') }}
+    {% block body %}
+    {% endblock %}
+</main>
+
+<footer class="container py-5 mt-5 mb-5">
+    <div class="row">
+        <div class="col-sm-5">
+            <h5 class="font-weight-bold">Services</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="./index.html" title="Back to the homepage">Home</a></li>
+                <li><a class="text-muted" href="./movie-top-rated.html" title="Get all top rated movies">Top Rated</a></li>
+                <li><a class="text-muted" href="./movie-by-genre.html" title="Find your movie by genre">Browse By Genre</a></li>
+                <li><a class="text-muted" href="./movie-latest.html" title="Get all new movies">Latest</a></li>
+                <li><a class="text-muted" href="./contact.html" title="You need some help ?">Help Center</a></li>
+                <li><a class="text-muted" href="./login.html" title="Register or log in">Log In</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-5">
+            <h5 class="font-weight-bold">About</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="#">Team</a></li>
+                <li><a class="text-muted" href="#">Locations</a></li>
+                <li><a class="text-muted" href="#">Privacy</a></li>
+                <li><a class="text-muted" href="#">Terms</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-2">
+            <a href="#main" class="font-weight-bold text-dark">Back to top <i class="far fa-arrow-alt-circle-up"></i></a>
+        </div>
+        <div class="col-12">
+            <p><strong>SensioTV+</strong> by <strong>Sensio<span class="color-green">Labs</span></strong> University<br><small class="d-block mb-3 text-muted">&copy; 2017-2020</small></p>
+        </div>
+    </div>
+</footer>
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+<!-- Vendor JS -->
+<script src="https://kit.fontawesome.com/8d75946265.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+</body>
+</html>

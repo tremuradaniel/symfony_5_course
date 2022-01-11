@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Latest movies{% endblock %}
+
+{% block body %}
+<div class="container jumbotron p-5 img-rounded">
+    <div class="row mb-5">
+        <div class="col-lg">
+
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col-md-3 text-center text-md-left pb-3">
+        </div>
+        <div class="col-md-9 table-responsive img-rounded bg-light p-4">
+            <p class="font-weight-bold">December</p>
+    <section id="central-section" class="bg-light p-5">
+        <div class="container jumbotron p-5 img-rounded">
+            <div class="row mb-5">
+                <div class="col-lg">
+                    <h1 class="display-4 font-weight-bold">{{ block('title') }}</h1>
+                </div>
+            </div>
+            <div class="row mb-4 text-center">
+               {% for movie in movies %}
+                <hr>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <a href="#" title="See {{ movie.title }} trailer" class="album-link">
+                            <img height="209" width="140" alt="{{ movie.title }}" title="{{ movie.title }}" src="{{ movie.poster }}">
+                        </a>
+                    </div>
+                    <div class="col-lg-9">
+                        <a href="#" title="Click to see the movie details"><h6 class="m-1 font-weight-bold">{{ movie.title }}</h6></a>
+                        <small class="text-success font-weight-bold m-1">{{ movie.country }} | {{ movie.rated }} |  {{ movie.genreNames }}</small>
+                        <p class="ml-1 mr-1 mt-3 mb-2"><span class="text-muted">{{ movie.description }}</span></p>
+                        <a href="#" title="Add this movie to your cart" class="btn btn-xs btn-dark m-1" role="button"><i class="fas fa-plus"></i> Add to cart: <b>{{ movie.price }}€</b></a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
