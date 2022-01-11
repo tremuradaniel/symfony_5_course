@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Form\RegistrationType;
+use App\Repository\UserRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -39,9 +42,19 @@ class SecurityController extends AbstractController
     /**
      * @Route("/register", name="registration")
     */
-    public function register(Request $request)
+    public function register(Request $request, UserRepository $ur)
     {
         $form = $this->createForm(RegistrationType::class);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            /** @var User $user */
+            $ur->registerNewUser($form->getData());
+            $this->addFlash('notice', 'Registered!');
+            return $this->redirectToRoute("homepage");
+        } 
+    
 
         return $this->render('security/register.html.twig', ['registration_form' => $form->createView()]);
     }
